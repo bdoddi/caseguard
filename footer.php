@@ -10,7 +10,6 @@
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/Youtube.svg" alt="Youtube" />
                 </div>
             </div>
-
             <div>
                 <b style="18px;"> Explore </b>
                 <div class="footer-colors-flex">
