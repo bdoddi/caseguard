@@ -16,8 +16,8 @@ body {
     font-family:Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: black;
     color: white;
+    background-color: black;
     align-items: center;
     /* overflow-x: hidden; */
 
@@ -129,6 +129,7 @@ position: absolute;
 /* Section 2 CSS Begins here */
 
 .section-2 {
+    background-color: black;
     overflow: hidden;
     text-align: center;
     background: linear-gradient(156.2deg, rgba(0, 105, 165, 0.6) 15.3%, rgba(30, 0, 149, 0.6) 38.43%, rgba(165, 0, 89, 0.6) 61.57%, rgba(164, 63, 0, 0.6) 84.7%);
@@ -144,7 +145,49 @@ position: absolute;
         font-size: 42px;
     }
 }
+/* Filter Begins here */
+.filter-parent {
+    margin: 20px auto;
+}
+select {
+    width: 200px;
+    padding: 10px 20px;
+    color: gray;
+    border-radius: 6px;
+    border: none;
+    display: block;
+    cursor: pointer;
+    margin: 0 auto;
+}
 
+.main-colors {
+    text-align: center;
+}
+
+.colors {
+    display: none;
+    width: 200px;
+    height: auto;
+    margin: 10px auto;
+    text-align: left;
+    list-style: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    background-color: white;
+}
+
+.colors li {
+    /* width: 250px; */
+    color:black;
+    cursor: pointer;
+    
+    input[type="checkbox"] {
+        cursor: pointer;
+    }
+}
+
+
+/* Filter Ends here */
 /* Carousel Begins here */
 
 .carousel {
@@ -169,51 +212,46 @@ position: absolute;
     z-index: 0;
     border-radius: 16px;
     background-size: contain;
-}
-
-.item-1 {
-    left: 20%;
-    opacity: 0.4;
+    &:nth-child(1) {
+        left: 20%;
+        opacity: 0.4;
+        transform: translateX(-50%);
+    } 
+    &:nth-child(2), &:nth-child(4)  {
+        height: 394px;
+        opacity: 0.8;
+        width: 640px;
+        z-index: 1;
+      }
+      &:nth-child(2) {
+        left: 35%;
     transform: translateX(-50%);
-}
-
-.item-2, .item-4 {
-    height: 394px;
-    opacity: 0.8;
-    width: 640px;
-    z-index: 1;
-}
-
-.item-2 {
-    left: 35%;
-    transform: translateX(-50%);
-}
-
-.item-3 {
-    box-shadow: -2px 5px 33px 6px rgba(0, 0, 0, 0.35);
-    height: 474px;
-    left: 50%;
-    opacity: 1;
-    transform: translateX(-50%);
-    width: 800px;
-    z-index: 2;
-}
-
-.item-4 {
-    left: 65%;
-    transform: translateX(-50%);
-}
-
-.item-5 {
-    left: 80%;
-    transform: translateX(-50%);
-    opacity: 0.4;
+      }
+  
+      &:nth-child(3) { 
+        box-shadow: -2px 5px 33px 6px rgba(0, 0, 0, 0.35);
+        height: 474px;
+        left: 50%;
+        opacity: 1;
+        transform: translateX(-50%);
+        width: 800px;
+        z-index: 2; 
+    }
+      &:nth-child(4) { 
+        left: 65%;
+        transform: translateX(-50%);
+    }
+      &:nth-child(5) { 
+        left: 80%;
+        transform: translateX(-50%);
+        opacity: 0.4;
+    }
 }
 
 .carousel-controls {
     display: flex;
     justify-content: center;
-    gap: 100px;
+    gap: 5px;
     padding: 50px 0px;
     color: white;
 
@@ -222,6 +260,12 @@ position: absolute;
 .carousel-controls img {
     cursor: pointer;
     /* font-size: 40px; */
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
 }
 
 /* Carousel End here*/
@@ -304,16 +348,17 @@ position: absolute;
 .carousel-item {
     height: 100px;
     width: 150px;
+
+    &:nth-child(2), &:nth-child(4)  {
+        height: 120px;
+        width: 180px;
+      }
+      &:nth-child(3) { 
+        height: 150px;
+        width: 200px;
+    }
 }
 
-.item-1 {
-    left: 20%;
-}
-
-.item-2, .item-4 {
-    height: 120px;
-    width: 180px;
-}
 
 .item-3 {
     height: 150px;

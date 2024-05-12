@@ -1,4 +1,4 @@
-<footer>
+<footer style="background-color: black;">
     <div style="padding: 40px;">
         <div class="footer-flex">
             <div>

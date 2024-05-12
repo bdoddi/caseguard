@@ -43,76 +43,75 @@ function typeJs() {
 // Set an interval to call the typeJs function
 setInterval(typeJs, 100) // You can adjust the animation speed as needed
 
-const carouselContainer = document.querySelector(".carousel-container");
-let carouselContainerLen = carouselContainer.length
-console.log({carouselContainerLen});
-const carouselControlsContainer = document.querySelector("carousel-controls");
-const carouselControls = ["previous", "next"]
-// const carouselControls = [, '<?php echo get_template_directory_uri(); ?>/assets/icons/carosel_right_arrow.svg'];
-const carouselItems = document.querySelectorAll(".carousel-item");
+/** Filter functionality begins from here */
 
-class Carousel {
-    constructor(container, items, controls) {
-        this.carouselNewContainer = container;
-        this.carouselNewControls = controls;
-        this.carouselArray = [...items]
-    }
+function filterFunction() {
+const select = document.querySelector("select");
+const colors = document.querySelector(".colors");
 
-    updateCarousel() {
-        this.carouselArray.forEach((evt) => {
-            evt.classList.remove("item-1");
-            evt.classList.remove("item-2");
-            evt.classList.remove("item-3");
-            evt.classList.remove("item-4");
-            evt.classList.remove("item-5");
-            // evt.classList.remove("item-6");
-        })
+select.addEventListener("change", (event) => {
+    const selected = event.target.value;
 
-        this.carouselArray.slice(0,5).forEach((evt, i) => {
-            evt.classList.add(`item-${i+1}`);
-        });
-    }
+    for(let i=0; i < colors.children.length; i++) {
+        const color = colors.children[i];
 
-    setCurrentState(direction) {
-        console.log("clicked direction", direction, direction.className)
-
-        if(direction.className == 'carousel-controls-previous') {
-            this.carouselArray.unshift(this.carouselArray.pop());
+        if(selected === 'none') {
+            colors.style.display = 'block';
+            color.style.display = 'block';
         } else {
-            this.carouselArray.push(this.carouselArray.shift());
+            if(color.id !== selected) {
+                color.style.display = 'none';
+            } else {
+                colors.style.display = 'block';
+                color.style.display = 'block';
+            }
         }
-
-        this.updateCarousel();
     }
+})
 
-    // setControls() {
-    //     this.carouselNewControls.forEach((control) => {
-    //         carouselControlsContainer.appendChild(document.createElement("button")).className=`carousel-controls-${control}`
-    //         // if(control === "previous") {
-    //         //     document.querySelector(`.carousel-controls-${control}`).src = '<?php echo get_template_directory_uri(); ?>}/assets/icons/carousel_left_arrow.svg';
-    //         // } else {
-    //         //     document.querySelector(`.carousel-controls-${control}`).src = '<?php echo get_template_directory_uri(); ?>/assets/icons/carousel_right_arrow.svg';
-    //         // }
-    //         document.querySelector(`.carousel-controls-${control}`).innerText = control;
-
-            
-    //     })
-    // }
- 
-    useControls() {
-        console.log("clicked", carouselControlsContainer.childNodes.length, [...carouselControlsContainer])
-        const triggers = [...carouselControlsContainer.childNodes];
-        triggers.forEach(control => {
-            control.addEventListener('click', e => {
-                console.log("clicked", control)
-                e.preventDefault();
-                this.setCurrentState(control)
-            })
-        })
-    }
 }
 
-const carousel = new Carousel(carouselContainer, carouselItems, carouselControls);
 
-// carousel.setControls();
-carousel.useControls()
+/** Carousel functionalities begins from here */
+
+const slider = document.querySelector('.carousel-container');
+
+function activate(e) {
+    const items = document.querySelectorAll('.carousel-item');
+    e.target.matches('.carousel-controls-next') && slider.append(items[0])
+    e.target.matches('.carousel-controls-previous') && slider.prepend(items[items.length - 1]);
+}
+
+// setInterval(document.addEventListener('click', activate, false), )
+
+document.addEventListener('click', activate, false);
+
+/**combining filter and carousel functionalities */
+let selectedColor = '';
+function selectedImage(e) {
+
+const colors = document.querySelector(".colors");
+for(let i=0; i < colors.children.length; i++) {
+    const color = colors.children[i];
+}
+
+}
+
+document.addEventListener('click', selectedImage, false);
+
+function CarouselFilter() {
+    const items = document.querySelectorAll('.carousel-item');
+    const colors = document.querySelector(".colors");
+    for(let i=0; i < colors.children.length; i++) {
+        const color = colors.children[i];
+    }
+    for(let i=0; i < items.length; i++) {
+        /** CarouselFilter functionality is in progress.... */
+    }
+    
+};
+
+
+/**Calling Functions */
+filterFunction()
+CarouselFilter()
