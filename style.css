@@ -366,7 +366,7 @@ select {
 }
 
 .carousel-controls {
-    gap: 50px;
+    /* gap: 50px; */
 }
 
 /* Carousel End here*/
